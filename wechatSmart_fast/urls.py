@@ -19,9 +19,18 @@ from django.conf import settings
 # from django.views.generic import TemplateView
 from django.views.static import serve #处理静态文件
 import xadmin
+from users.views import IndexView
+from users.views import LoginView, ModifyPwdView, LogoutView
+
 
 urlpatterns = [
     url(r'xadmin/', include(xadmin.site.urls)),
+    url(r'^$', IndexView.as_view(), name="index"),
+    url(r'^login/$', LoginView.as_view(), name='login'),
+# 退出登录
+    url(r'^logout/$', LogoutView.as_view(), name='logout'),
+# 重置密码表单 POST 请求
+#     url(r'^modify_pwd/$', ModifyPwdView.as_view(), name='modify_pwd'),
 ]
 
 # 全局 404 页面配置（django 会自动调用这个变量）

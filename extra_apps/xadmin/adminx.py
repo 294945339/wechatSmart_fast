@@ -1,5 +1,7 @@
+# -*- coding: utf-8 -*-
 from __future__ import absolute_import
 import xadmin
+from xadmin import views
 from .models import UserSettings, Log
 from xadmin.layout import *
 
@@ -30,3 +32,13 @@ class LogAdmin(object):
     model_icon = 'fa fa-cog'
 
 xadmin.site.register(Log, LogAdmin)
+
+# class GlobalSetting(object):
+
+    # menu_style = "accordion"
+    # global_search_icon = [V_UserInfo , UserDistrict]
+    # global_models_icon = {
+    #     V_UserInfo: "glyphicon glyphicon-user", UserDistrict: "fa fa-cloud"
+    # }  # 设置models的全局图标
+
+# xadmin.site.register(views.CommAdminView, GlobalSetting)
